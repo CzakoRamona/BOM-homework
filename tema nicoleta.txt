@@ -1,0 +1,19 @@
+<span class="phone">+65 2244 1100</span>
+</header>
+<section>
+    <article>
+        <h2>Trending Courses</h2>
+        <p>Trending Courses lorem ipsum and some more and some more and some more and some more</p>
+    </article>
+    
+    <article>
+        <h2>Books and Library</h2>
+        <p>Books and Library lorem ipsum and some more and some more and some more and some more</p>
+    </article>
+    
+    <article>
+        <h2>Certified Teachers</h2>
+        <p>Certified Teachers lorem ipsum and some more and some more and some more and some more</p>
+    </article>
+</section>
+</body>
