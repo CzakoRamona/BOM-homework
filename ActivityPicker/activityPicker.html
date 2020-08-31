@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="activtyPicker.js"></script>
+    <link rel="stylesheet" href="activityPicker.css">
+</head>
+<body>
+    <div class="flex-container">
+        <div class="filters">
+            <h3>Filters</h3>
+
+            <div class="card">
+                <div class="card-title">Type</div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input type="radio" name="type" value="education">
+                        <label>Education</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="radio" name="type" value="recreational">
+                        <label>Recreational</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="radio" name="type" value="social">
+                        <label>Social</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="radio" name="type" value="diy">
+                        <label>Diy</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="radio" name="type" value="charity">
+                        <label>Charity</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="radio" name="type" value="cooking">
+                        <label>Cooking</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="radio" name="type" value="relaxation">
+                        <label>Relaxation</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="radio" name="type" value="music">
+                        <label>Music/label>
+                    </div>
+                    <div class="input-group">
+                        <input type="radio" name="type" value="busywork">
+                        <label>Busywork</label>
+                    </div>
+                    <!-- Add radio buttons for all the types -->
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Participants</div>
+                <div class="card-body">
+                        <div class="input-group">
+                            <label>Participants</label>
+                            <input type="number" class="input" id="participants" placeholder="1">
+                        </div>
+                </div>
+            </div>
+ 
+            <!-- Add a card with inputs for min and max price -->
+
+            <button type="button" id="activity-button">Find activity</button>
+        </div>
+
+        
+        <div>
+            <h3>Activity</h3>
+            <div id="activity" class="activity"></div>
+            <div id="error"></div>
+        </div> 
+    </div>
+       
+</body>
+</html>
