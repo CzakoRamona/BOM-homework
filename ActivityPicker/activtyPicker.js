@@ -3,6 +3,8 @@
 var baseUrl = new URL("http://www.boredapi.com/api/activity/");
 
 function getActivty() {
+setTypeFilter();
+setParticipantsFilter();
 
     fetch(baseUrl.href, {method: "GET"})
     .then(
@@ -14,7 +16,11 @@ function getActivty() {
         function(jsonResp) {
             console.log(jsonResp);
             // todo: handle no activity use case
+            if(jsonResp.error){
+                displayError(jsonResp.error)
+            }else{
             displayActivity(jsonResp);
+             }
         }
     ).catch(function(error) {
         console.log(error);
@@ -39,6 +45,10 @@ function setTypeFilter() {
 
 function setParticipantsFilter() {
     // todo: get the input value and set the search paramater
+    var nrParticipants=document.getElementById("participants").value;
+if(nrParticipants){
+    baseUrl.searchParams.set("participants",nrParticipants);
+}
 }
 
 function setPriceFilter() {
@@ -69,6 +79,8 @@ function displayActivity(currentActivity) {
 
 function displayError(error) {
     // todo: display the error
+var errorDiv=document.getElementById("error");
+errorDiv.innerText=error;
 }
 
 function getPriceRange(price) {
