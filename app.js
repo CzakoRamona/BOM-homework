@@ -48,4 +48,18 @@ Cookies.set("running", "true", { expires: 5 });
 var myCookie = Cookies.get("running");
 console.log(myCookie);
 
-document.cookie
+
+function getCookie() {
+    var myCookiesArr = [];
+    var cookie = document.cookie.split(";")
+    for (var id in cookie) {
+        var keyvalue = cookie[id].split("=");
+        myCookiesArr.push({
+                "name": keyvalue[0],
+                "value": keyvalue[1]
+            })
+            // myCookiesArr[keyvalue[0].trim()] = keyvalue[1];
+    }
+    console.log(myCookiesArr);
+}
+getCookie();
