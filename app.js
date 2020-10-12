@@ -31,13 +31,13 @@ controler1.initButton();
 
 
 //sau varianta a 2 a
-localStorage.setItem('cookie_eating', "ramona");
-localStorage.removeItem("cookie_eating")
-sessionStorage.setItem("cookie_eating", "norbi");
-sessionStorage.setItem("cookie_eating", "ramona");
+// localStorage.setItem('cookie_eating', "ramona");
+// localStorage.removeItem("cookie_eating")
+// sessionStorage.setItem("cookie_eating", "norbi");
+// sessionStorage.setItem("cookie_eating", "ramona");
 
-document.cookie = "cookie_eating=andrei;expires=" + new Date(2021, 10, 05, 1, 5, 60, 34).toUTCString()
-console.log(document.cookie)
+// document.cookie = "cookie_eating=andrei;expires=" + new Date(2021, 10, 05, 1, 5, 60, 34).toUTCString()
+// console.log(document.cookie)
 
 
 //varianta 3
@@ -46,13 +46,13 @@ var myCookie = Cookies.get("running");
 console.log(myCookie);
 
 //varianta 4
-function setCookie(name, value, exdays) {
+function setCookies(name, value, exdays) {
     var day = new Date();
     day.setTime(day.getTime() + (exdays * 24 * 60 * 60 * 1000));
     var expires = "expires=" + day.toGMTString();
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
-setCookie("language", "en-US", 365);
+setCookies("language", "en-US", 365);
 
 function getCookies() {
     var myCookiesArr = [];
@@ -69,7 +69,7 @@ function getCookies() {
 }
 getCookies();
 
-document.addEventListener("input", (setCookieLanguage) => {
+const changeLanguage = document.addEventListener("input", (setCookieLanguage) => {
 
     if (setCookieLanguage.target.getAttribute('name') == "language")
         var change = setCookieLanguage.target.value;
@@ -85,10 +85,12 @@ function setCookieLanguage() {
             "name": keyvalue[0],
             "value": keyvalue[1]
         });
-        if ("value" != "ro-RO") {
-            setCookie("language", "ro-RO");
+        if ("value" == "en-US") {
+            setCookies("language", "en-US");
+        } else {
+            setCookies("language", "ro-RO");
         }
     }
 }
-setCookieLanguage.target.value;
-////nu am mai stiut cum sa leg cele 2 functii ca sa-mi schimbe language in cookie
+setCookieLanguage(changeLanguage);
+////imi functioneaza o singura data...daca se schimba in ro-Ro ramane asa pana inchid pagina si trebuie sa deschid din nou in live-server ca sa mi reseteze
