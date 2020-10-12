@@ -12,10 +12,7 @@ class Controler {
         addCookie.addEventListener("click", () => {
             this.setCookie("user", "John", 5);
         });
-        let viewCookie = document.getElementById("viewCookie")
-        viewCookie.addEventListener("click", () => {
-            alert(document.cookie);
-        });
+
     }
 
     setCookie(cname, cvalue, exdays) {
@@ -48,8 +45,16 @@ Cookies.set("running", "true", { expires: 5 });
 var myCookie = Cookies.get("running");
 console.log(myCookie);
 
+//varianta 4
+function setCookie(name, value, exdays) {
+    var day = new Date();
+    day.setTime(day.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + day.toGMTString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+setCookie("language", "en-US", 365);
 
-function getCookie() {
+function getCookies() {
     var myCookiesArr = [];
     var cookie = document.cookie.split(";")
     for (var id in cookie) {
@@ -62,4 +67,28 @@ function getCookie() {
     }
     console.log(myCookiesArr);
 }
-getCookie();
+getCookies();
+
+document.addEventListener("input", (setCookieLanguage) => {
+
+    if (setCookieLanguage.target.getAttribute('name') == "language")
+        var change = setCookieLanguage.target.value;
+    console.log(change);
+});
+
+function setCookieLanguage() {
+    var myCookiesArr = [];
+    var cookie = document.cookie.split(";")
+    for (var id in cookie) {
+        var keyvalue = cookie[id].split("=");
+        myCookiesArr.push({
+            "name": keyvalue[0],
+            "value": keyvalue[1]
+        });
+        if ("value" != "ro-RO") {
+            setCookie("language", "ro-RO");
+        }
+    }
+}
+setCookieLanguage.target.value;
+////nu am mai stiut cum sa leg cele 2 functii ca sa-mi schimbe language in cookie
